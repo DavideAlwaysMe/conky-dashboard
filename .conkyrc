@@ -21,8 +21,8 @@ border_outer_margin 0
 minimum_size 450 900
 maximum_width 750
 
-alignment tr
-gap_x 35
+alignment tl
+gap_x 80
 gap_y 35
 
 # Graphics settings #
@@ -39,10 +39,11 @@ xftalpha 0.9
 default_color FFFFFF
 
 # Lua Load #
-lua_load ~/.conky/conky_dashboard.lua
+lua_load ~/.conky/conky-dashboard/conky_dashboard.lua
 lua_draw_hook_pre clock_rings
 
 TEXT
+
 ${voffset 8}${goto -45}${color FFFFFF}${font caviar dreams:size=16}${time %A}${font}
 ${goto 200}${color FFFFFF}${font caviar dreams:size=38}${time %e} ${time %b}${font}
 ${voffset 40}${font caviar dreams:size=64}${alignr}${time %H}:${time %M}${font}
@@ -53,14 +54,21 @@ ${color FFFFFF}${goto 215}${voffset 45}${memperc}%
 ${color FFFFFF}${goto 215}RAM
 ${color FFFFFF}${goto 70}${voffset -38}${fs_used_perc /}%
 ${color FFFFFF}${goto 70}SSD
-${color FFFFFF}${goto 90}${voffset 25}${if_up wlan0}${downspeed wlan0}${endif}
-${color FFFFFF}${goto 90}${if_up wlan0}${upspeed wlan0}${endif} 
+${color FFFFFF}${goto 90}${voffset 25}${if_up wlp1s0}${downspeed wlp1s0}${endif}
+${color FFFFFF}${goto 90}${if_up wlp1s0}${upspeed wlp1s0}${endif} 
 ${color FFFFFF}${goto 90}NET
 
 
 ${color FFFFFF}${font caviar dreams:size=18}Uptime: ${uptime_short}
 ${color FFFFFF}${font caviar dreams:size=18}Processes: ${processes}
 ${color FFFFFF}${font caviar dreams:size=18}Running: ${running_processes}
-
-${color FFFFFF}${font caviar dreams:size=18}${alignr}${nodename}
+#${color FFFFFF}${font caviar dreams:size=18}${alignr}${nodename}
 #${color FFFFFF}${font caviar dreams:size=18}${alignr}${pre_exec cat /etc/issue.net}  $machine
+${cpugraph 50,500 d5dcde ffffff}
+
+${font caviar dreams:size=16}RAM ${alignr}$memperc%${font}
+${font caviar dreams:size=12}${stippled_hr}${font}
+${top_mem name 1} ${alignr}${top_mem mem 1}
+${top_mem name 2} ${alignr}${top_mem mem 2}
+${top_mem name 3} ${alignr}${top_mem mem 3}
+${top_mem name 4} ${alignr}${top_mem mem 4}
