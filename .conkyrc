@@ -25,6 +25,7 @@ alignment tl
 gap_x 80
 gap_y 35
 
+
 # Graphics settings #
 draw_shades no
 draw_outline no
@@ -40,7 +41,7 @@ default_color FFFFFF
 
 # Lua Load #
 lua_load ~/.conky/conky-dashboard/conky_dashboard.lua
-lua_draw_hook_pre clock_rings
+lua_draw_hook_pre clock_rings lines
 
 TEXT
 
@@ -66,9 +67,17 @@ ${color FFFFFF}${font caviar dreams:size=18}Running: ${running_processes}
 #${color FFFFFF}${font caviar dreams:size=18}${alignr}${pre_exec cat /etc/issue.net}  $machine
 ${cpugraph 50,500 d5dcde ffffff}
 
-${font caviar dreams:size=16}RAM ${alignr}$memperc%${font}
-${font caviar dreams:size=12}${stippled_hr}${font}
-${top_mem name 1} ${alignr}${top_mem mem 1}
-${top_mem name 2} ${alignr}${top_mem mem 2}
-${top_mem name 3} ${alignr}${top_mem mem 3}
-${top_mem name 4} ${alignr}${top_mem mem 4}
+${font caviar dreams:size=16}RAM ${goto 200}$memperc%${font}
+#${font caviar dreams:size=12}${stippled_hr}${font}
+${voffset 30}${top_mem name 1}${goto 190}${top_mem mem 1}
+${top_mem name 2}${goto 190}${top_mem mem 2}
+${top_mem name 3}${goto 190}${top_mem mem 3}
+${top_mem name 4}${goto 190}${top_mem mem 4}
+${image ~/.conky/conky-dashboard/ram.png -s 42x42 -p 70,802}
+
+${voffset -192}${goto 270}${font caviar dreams:size=16}CPU  ${alignr}$cpu%${font}
+${voffset 30}${goto 270}${top name 1} ${alignr}${top cpu 1}
+${goto 270}${top name 2} ${alignr}${top cpu 2}
+${goto 270}${top name 3} ${alignr}${top cpu 3}
+${goto 270}${top name 4} ${alignr}${top cpu 4}
+${image ~/.conky/conky-dashboard/cpu.png -s 25x25 -p 330,810}

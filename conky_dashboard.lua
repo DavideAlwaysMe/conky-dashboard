@@ -380,7 +380,7 @@ settings_table = {
     }, 
     {
         name='downspeedf',
-        arg='wlan0',
+        arg='wlp1s0',
         max=100,
         bg_colour=0xFFFFFF,
         bg_alpha=0.5,
@@ -394,7 +394,7 @@ settings_table = {
     },
         {
         name='upspeedf',
-        arg='wlan0',
+        arg='wlp1s0',
         max=100,
         bg_colour=0xFFFFFF,
         bg_alpha=0.5,
@@ -408,7 +408,7 @@ settings_table = {
     },
     {
         name='upspeedf',
-        arg='wlan0',
+        arg='wlp1s0',
         max=100,
         bg_colour=0xFFFFFF,
         bg_alpha=0.5,
@@ -542,7 +542,20 @@ function conky_clock_rings()
         end
     end
     
+    --line for ram
+    cairo_move_to(cr,0,850)
+    cairo_set_line_width(cr,1)
+    cairo_line_to(cr,235,850)    
+    
+    --line for cpu
+    cairo_move_to(cr,270,850)
+    cairo_set_line_width(cr,1)
+    cairo_line_to(cr,500,850)   
+    
     draw_clock_hands(cr,clock_x,clock_y)
     --test
 	cairo_destroy(cr)
+	
+    
 end
+
