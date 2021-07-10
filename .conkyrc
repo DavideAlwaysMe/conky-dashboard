@@ -8,6 +8,8 @@ override_utf8_locale yes
 
 double_buffer yes
 
+update_interval 5.0
+
 # Window specifications #
 own_window_class Conky
 own_window yes
@@ -22,8 +24,8 @@ minimum_size 450 900
 maximum_width 750
 
 alignment tl
-gap_x 80
-gap_y 35
+gap_x 30
+gap_y 30
 
 
 # Graphics settings #
