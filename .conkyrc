@@ -1,51 +1,54 @@
-background no
-update_interval 1
+conky.config = {
+	background = false,
+	update_interval = 1,
 
-cpu_avg_samples 2
-net_avg_samples 2
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
 
-override_utf8_locale yes
+	override_utf8_locale = true,
 
-double_buffer yes
+	double_buffer = true,
 
-update_interval 5.0
+	update_interval = 5.0,
 
-# Window specifications #
-own_window_class Conky
-own_window yes
-own_window_transparent yes
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-own_window_argb_visual yes
+-- Window specifications #
+	own_window_class = 'Conky',
+	own_window = true,
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_argb_visual = true,
 
-border_inner_margin 0
-border_outer_margin 0
+	border_inner_margin = 0,
+	border_outer_margin = 0,
 
-minimum_size 450 900
-maximum_width 750
+	minimum_width = 450, minimum_height = 900,
+	maximum_width = 750,
 
-alignment tl
-gap_x 30
-gap_y 30
+	alignment = 'top_left',
+	gap_x = 30,
+	gap_y = 30,
 
 
-# Graphics settings #
-draw_shades no
-draw_outline no
-draw_borders no
-draw_graph_borders no
+-- Graphics settings #
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
 
-# Text settings #
-use_xft yes
-xftfont caviar dreams:size=14
-xftalpha 0.9
+-- Text settings #
+	use_xft = true,
+	font = 'caviar dreams:size=14',
+	xftalpha = 0.9,
 
-default_color FFFFFF
+	default_color = '#FFFFFF',
 
-# Lua Load #
-lua_load ~/.conky/conky-dashboard/conky_dashboard.lua
-lua_draw_hook_pre clock_rings lines
+-- Lua Load #
+	lua_load = '~/.conky/conky-dashboard/conky_dashboard.lua',
+	lua_draw_hook_pre = 'clock_rings lines',
 
-TEXT
+};
+
+conky.text = [[
 
 ${voffset 8}${goto -45}${color FFFFFF}${font caviar dreams:size=16}${time %A}${font}
 ${goto 200}${color FFFFFF}${font caviar dreams:size=38}${time %e} ${time %b}${font}
@@ -83,3 +86,4 @@ ${goto 270}${top name 2} ${alignr}${top cpu 2}
 ${goto 270}${top name 3} ${alignr}${top cpu 3}
 ${goto 270}${top name 4} ${alignr}${top cpu 4}
 ${image ~/.conky/conky-dashboard/cpu.png -s 25x25 -p 330,810}
+]];
