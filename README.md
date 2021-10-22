@@ -1,4 +1,7 @@
-# How to install
+# conky-dashboard
+![screenshot](/screenshot.png?raw=true)
+
+## How to install
 
 ```
 cd ~/.conky
